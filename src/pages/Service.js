@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/dashboard.css";
+import { FaCheck } from "react-icons/fa";
 
 const Tab = ({ render, ...props }) => {
   const [tabIndex, setIndex] = useState(0);
@@ -150,21 +151,125 @@ const Service = () => {
                         alignItems: "center",
                         gap: "40px",
                         margin: "30px 50px",
+                        paddingBottom: "100px",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
                           flexDirection: "column",
+                          height: "280px",
                           gap: "10px",
                           alignItems: "flex-end",
                           flex: 1,
                         }}
                       >
-                        <div style={{ fontSize: "26px" }}>특장점</div>
+                        <div style={{ fontSize: "26px", fontWeight: "bold" }}>
+                          특장점
+                        </div>
                       </div>
-                      <div style={{ width: "900px", fontSize: "20px" }}>
-                        요소
+                      <div style={{ width: "900px" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            gap: "20px",
+                            borderBottom: "1px solid #d9d9d9",
+                            padding: "30px 0",
+                          }}
+                        >
+                          <FaCheck style={{ color: "red", fontSize: "48px" }} />
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "10px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontSize: "20px",
+                                color: "red",
+                                fontWeight: "bold",
+                                margin: "10px 0px",
+                              }}
+                            >
+                              맞춤화된 디자인
+                            </div>
+                            <div style={{ fontSize: "16px" }}>
+                              고객의 요구사항을 정확히 이해하고, 그에 맞는
+                              디자인을 구현하여 고객의 브랜드를 강화할 수
+                              있습니다.
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            gap: "20px",
+                            borderBottom: "1px solid #d9d9d9",
+                            padding: "30px 0",
+                          }}
+                        >
+                          <FaCheck style={{ color: "red", fontSize: "48px" }} />
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "10px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontSize: "20px",
+                                color: "red",
+                                fontWeight: "bold",
+                                margin: "10px 0px",
+                              }}
+                            >
+                              맞춤화된 디자인
+                            </div>
+                            <div style={{ fontSize: "16px" }}>
+                              고객의 요구사항을 정확히 이해하고, 그에 맞는
+                              디자인을 구현하여 고객의 브랜드를 강화할 수
+                              있습니다.
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            gap: "20px",
+                            padding: "30px 0",
+                          }}
+                        >
+                          <FaCheck style={{ color: "red", fontSize: "48px" }} />
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "10px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontSize: "20px",
+                                color: "red",
+                                fontWeight: "bold",
+                                margin: "10px 0px",
+                              }}
+                            >
+                              맞춤화된 디자인
+                            </div>
+                            <div style={{ fontSize: "16px" }}>
+                              고객의 요구사항을 정확히 이해하고, 그에 맞는
+                              디자인을 구현하여 고객의 브랜드를 강화할 수
+                              있습니다.
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
