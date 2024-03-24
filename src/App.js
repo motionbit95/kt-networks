@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import "./styles/reset.css";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import styled from "styled-components";
+import Service from "./pages/Service";
+import Intro from "./pages/Intro";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Appstyle>
+      <Header />
+      <div style={{ flex: 1, width: "100%" }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/about" element={<Intro />} />
+            <Route path="/service" element={<Service />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+      <Footer />
+    </Appstyle>
   );
 }
 
 export default App;
+
+const Appstyle = styled.div`
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
