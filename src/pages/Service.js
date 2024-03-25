@@ -6,39 +6,14 @@ const Tab = ({ render, ...props }) => {
   const [tabIndex, setIndex] = useState(0);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "50px",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "50px",
-      }}
-    >
+    <div id="tap_Wrap" className="tap_Wrap">
       {/* 탭 버튼들 */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
-          maxWidth: "1250px",
-          justifyItems: "center",
-        }}
-      >
+      <div id="tap_Buttons" className="tap_Buttons">
         {render.map((item, index) => (
           <div
-            style={{
-              width: "100%",
-              cursor: "pointer",
-              color: tabIndex === index ? "white" : "black",
-              backgroundColor: tabIndex === index ? "red" : "white",
-              border: "1px solid",
-              borderColor: tabIndex === index ? "red" : "#d9d9d9",
-              padding: "20px",
-              textAlign: "center",
-            }}
+            className={
+              tabIndex === index ? "tap_Button selected_Button" : "tap_Button"
+            }
             onClick={() => setIndex(index)}
           >
             {item.title}
@@ -59,215 +34,94 @@ const Tab = ({ render, ...props }) => {
 const Service = () => {
   return (
     <div id="Container" className="Container">
-      <div id="Section1" className="Section1">
+      <div id="Section" className="Section">
         <div id="about_header" className="about_header">
           <div id="about_Box" className="about_Box">
-            <div style={{ fontSize: "36px", color: "red", fontWeight: "bold" }}>
-              서비스
-            </div>
-            <div style={{ fontSize: "22px" }}>
+            <div className="f36 red bold">서비스</div>
+            <div className="f22">
               창의적이고 전문적인 디자인 서비스를 제공합니다. 저희와 함께
               성공적인 광고 디자인을 만들어보세요.
             </div>
           </div>
         </div>
-        <div
-          style={{ width: "100%", display: "flex", justifyContent: "center" }}
-        >
-          <div class="about_path">
+        <div id="about_contents_wrap" className="about_contents_wrap">
+          <div id="about_path" class="about_path">
             <div>
               <span>Home</span>
             </div>
             <span>〉</span>
             <div>
-              <span>서비스</span>
+              <span>회사소개</span>
             </div>
           </div>
         </div>
-        <div
-          style={{ width: "100%", display: "flex", justifyContent: "center" }}
-        >
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <Tab
             render={[
               {
                 title: "홈페이지 제작",
                 content: (
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      width: "100%",
-                      maxWidth: "1250px",
-                    }}
-                  >
+                  <div>
                     <img
                       src={require("../assets/homepage.jpeg")}
-                      style={{
-                        width: "100%",
-                        display: "flex",
-                        backgroundSize: "cover",
-                        backgroundRepeat: "no-repeat",
-                        // height: "300px",
-                        justifyContent: "center",
-                      }}
+                      className="service_title_img"
                     />
-                    <div
-                      style={{
-                        display: "flex",
-                        height: "280px",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: "40px",
-                        margin: "0px 50px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          gap: "15px",
-                          alignItems: "flex-end",
-                          flex: 1,
-                        }}
-                      >
-                        <div style={{ fontSize: "16px", color: "red" }}>
-                          HOMEPAGE
-                        </div>
-                        <div style={{ fontSize: "36px", fontWeight: "bold" }}>
-                          홈페이지 제작
-                        </div>
+                    <div className="service_title_box">
+                      <div className="service_title">
+                        <p className="f16 red bold">HOMEPAGE</p>
+                        <p className="f36 bold">홈페이지 제작</p>
                       </div>
-                      <div style={{ width: "900px", fontSize: "20px" }}>
-                        홈페이지 제작은 고객의 비전과 목표를 반영하여 웹사이트를
-                        구축하는 과정입니다. 우리는 고객과의 철저한
-                        커뮤니케이션을 통해 고객의 요구사항을 이해하고, 그에
-                        맞는 디자인과 기능을 구현합니다.
+                      <div style={{ flex: 3 }}>
+                        <p className="f20">
+                          홈페이지 제작은 고객의 비전과 목표를 반영하여
+                          웹사이트를 구축하는 과정입니다. 우리는 고객과의 철저한
+                          커뮤니케이션을 통해 고객의 요구사항을 이해하고, 그에
+                          맞는 디자인과 기능을 구현합니다.
+                        </p>
                       </div>
                     </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        gap: "40px",
-                        margin: "30px 50px",
-                        paddingBottom: "100px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          height: "280px",
-                          gap: "10px",
-                          alignItems: "flex-end",
-                          flex: 1,
-                        }}
-                      >
-                        <div style={{ fontSize: "26px", fontWeight: "bold" }}>
-                          특장점
-                        </div>
+                    <div className="service_table">
+                      <div className="service_table_title_box">
+                        <p className="f26 bold">특장점</p>
                       </div>
-                      <div style={{ width: "900px" }}>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            gap: "20px",
-                            borderBottom: "1px solid #d9d9d9",
-                            padding: "30px 0",
-                          }}
-                        >
-                          <FaCheck style={{ color: "red", fontSize: "48px" }} />
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              gap: "10px",
-                            }}
-                          >
-                            <div
-                              style={{
-                                fontSize: "20px",
-                                color: "red",
-                                fontWeight: "bold",
-                                margin: "10px 0px",
-                              }}
-                            >
-                              맞춤화된 디자인
-                            </div>
-                            <div style={{ fontSize: "16px" }}>
+                      <div className="service_table_contents">
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">맞춤화된 디자인</p>
+                            <p className="f16">
                               고객의 요구사항을 정확히 이해하고, 그에 맞는
                               디자인을 구현하여 고객의 브랜드를 강화할 수
                               있습니다.
-                            </div>
+                            </p>
                           </div>
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            gap: "20px",
-                            borderBottom: "1px solid #d9d9d9",
-                            padding: "30px 0",
-                          }}
-                        >
-                          <FaCheck style={{ color: "red", fontSize: "48px" }} />
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              gap: "10px",
-                            }}
-                          >
-                            <div
-                              style={{
-                                fontSize: "20px",
-                                color: "red",
-                                fontWeight: "bold",
-                                margin: "10px 0px",
-                              }}
-                            >
-                              맞춤화된 디자인
-                            </div>
-                            <div style={{ fontSize: "16px" }}>
-                              고객의 요구사항을 정확히 이해하고, 그에 맞는
-                              디자인을 구현하여 고객의 브랜드를 강화할 수
-                              있습니다.
-                            </div>
+                        <hr />
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">사용자 경험 개선 </p>
+                            <p className="f16">
+                              홈페이지 제작은 사용자의 편의성과 직관성을
+                              고려하여 디자인과 기능을 구현합니다. 사용자가
+                              웹사이트를 쉽게 이용할 수 있도록 최적화된 사용자
+                              경험을 제공합니다.
+                            </p>
                           </div>
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            gap: "20px",
-                            padding: "30px 0",
-                          }}
-                        >
-                          <FaCheck style={{ color: "red", fontSize: "48px" }} />
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              gap: "10px",
-                            }}
-                          >
-                            <div
-                              style={{
-                                fontSize: "20px",
-                                color: "red",
-                                fontWeight: "bold",
-                                margin: "10px 0px",
-                              }}
-                            >
-                              맞춤화된 디자인
-                            </div>
-                            <div style={{ fontSize: "16px" }}>
-                              고객의 요구사항을 정확히 이해하고, 그에 맞는
-                              디자인을 구현하여 고객의 브랜드를 강화할 수
-                              있습니다.
-                            </div>
+                        <hr />
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">확장성과 유연성</p>
+                            <p className="f16">
+                              홈페이지 제작은 고객의 요구에 따라 다양한 기능을
+                              추가할 수 있습니다. 예를 들어, 온라인 쇼핑몰, 예약
+                              시스템, 회원 가입 기능 등을 구현할 수 있습니다.
+                              또한, 홈페이지는 필요에 따라 확장이 가능하며,
+                              유지보수와 업데이트를 통해 항상 최신 상태를 유지할
+                              수 있습니다.
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -277,15 +131,222 @@ const Service = () => {
               },
               {
                 title: "어플리케이션 제작",
-                content: <div>어플리케이션 제작</div>,
+                content: (
+                  <div>
+                    <img
+                      src={require("../assets/app.jpeg")}
+                      className="service_title_img"
+                    />
+                    <div className="service_title_box">
+                      <div className="service_title">
+                        <p className="f16 red bold">APPLICATION</p>
+                        <div className="f36 bold">
+                          <p style={{ marginBottom: "13px" }}>어플리케이션</p>
+                          <p>제작</p>
+                        </div>
+                      </div>
+                      <div style={{ flex: 3 }}>
+                        <p className="f20">
+                          어플리케이션 제작은 사용자 중심적인 디자인과 직관적인
+                          사용성을 고려합니다. 사용자들이 쉽게 어플리케이션을
+                          이용하고, 원하는 정보와 기능을 빠르게 찾을 수 있도록
+                          최적화된 인터페이스를 제공합니다.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="service_table">
+                      <div className="service_table_title_box">
+                        <p className="f26 bold">특장점</p>
+                      </div>
+                      <div className="service_table_contents">
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">맞춤형 솔루션</p>
+                            <p className="f16">
+                              고객의 요구와 목표에 맞춰 맞춤형 어플리케이션을
+                              제작합니다. 고객의 비전을 이해하고, 최신 기술과
+                              디자인 트렌드를 활용하여 고객의 요구에 부합하는
+                              어플리케이션을 구현합니다.
+                            </p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">
+                              사용자 중심적인 디자인
+                            </p>
+                            <p className="f16">
+                              사용자들이 쉽게 어플리케이션을 이용하고, 원하는
+                              정보와 기능을 빠르게 찾을 수 있도록 최적화된
+                              인터페이스를 제공합니다. 사용자 중심적인 디자인과
+                              직관적인 사용성을 고려하여 사용자들에게 편리한
+                              경험을 제공합니다.
+                            </p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">보안과 안정성</p>
+                            <p className="f16">
+                              사용자의 개인정보와 데이터를 안전하게 보호하고,
+                              어플리케이션의 안정성을 유지하기 위해 최신 보안
+                              기술을 적용합니다.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ),
               },
               {
                 title: "영상 제작",
-                content: <div>영상 제작</div>,
+                content: (
+                  <div>
+                    <img
+                      src={require("../assets/video.jpeg")}
+                      className="service_title_img"
+                    />
+                    <div className="service_title_box">
+                      <div className="service_title">
+                        <p className="f16 red bold">PRODUCTION</p>
+                        <p className="f36 bold">영상 제작</p>
+                      </div>
+                      <div style={{ flex: 3 }}>
+                        <p className="f20">
+                          고객의 요구와 목표에 맞춰 최상의 영상 콘텐츠를
+                          제작합니다. 우리의 전문가들은 다양한 분야에서 다년간의
+                          경험을 쌓아왔으며, 최신의 기술과 독창적인 아이디어를
+                          활용하여 고객의 비전을 현실로 만들어냅니다.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="service_table">
+                      <div className="service_table_title_box">
+                        <p className="f26 bold">특장점</p>
+                      </div>
+                      <div className="service_table_contents">
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">다양한 분야에 적용</p>
+                            <p className="f16">
+                              광고, 프로모션, 기업 홍보, 제품 소개 등 다양한
+                              분야에 적용될 수 있습니다.
+                            </p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">
+                              전문적인 영상 제작 서비스 제공
+                            </p>
+                            <p className="f16">
+                              고객의 요구에 따라 스토리보드 작성, 촬영, 편집,
+                              음향 등 모든 단계를 전문적으로 수행합니다.
+                            </p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">맞춤 서비스</p>
+                            <div className="f16">
+                              <p>
+                                항상 고객의 요구와 예산에 맞춰 유연하게
+                                제공됩니다.
+                              </p>
+                              <p>
+                                고객과의 긴밀한 협력을 통해 최고의 결과물을
+                                만들어내고자 합니다.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ),
               },
               {
                 title: "로고 디자인",
-                content: <div>로고 디자인</div>,
+                content: (
+                  <div>
+                    <img
+                      src={require("../assets/logo.jpeg")}
+                      className="service_title_img"
+                    />
+                    <div className="service_title_box">
+                      <div className="service_title">
+                        <p className="f16 red bold">LOGO DESIGN</p>
+                        <p className="f36 bold">로고 디자인</p>
+                      </div>
+                      <div style={{ flex: 3 }}>
+                        <p className="f20">
+                          우리는 고객의 비전과 가치를 반영한 독특하고 차별화된
+                          로고를 제작하는 것을 목표로 하고 있습니다.우리의
+                          로고는 고객의 브랜드를 대표하며, 고객의 타겟 시장과
+                          고객층에 맞는 이미지를 전달합니다.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="service_table">
+                      <div className="service_table_title_box">
+                        <p className="f26 bold">특장점</p>
+                      </div>
+                      <div className="service_table_contents">
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">창의적인 아이디어</p>
+                            <p className="f16">
+                              우리는 창의적인 아이디어를 통해 일반적이지 않고,
+                              기존의 흔한 로고와는 다른 독특한 모습을 가지고
+                              있습니다.
+                            </p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">전문적인 지식과 경험</p>
+                            <p className="f16">
+                              우리는 로고 디자인에 대한 전문적인 지식과 경험을
+                              가지고 있습니다. 다양한 산업과 분야에 맞는 로고를
+                              제작할 수 있으며, 고객의 브랜드를 대표하는
+                              이미지를 전달합니다.
+                            </p>
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="service_table_item">
+                          <FaCheck className="f48 red" />
+                          <div className="service_table_item_text">
+                            <p className="f20 red bold">
+                              최신 디자인 트렌드와 기술
+                            </p>
+                            <p className="f16">
+                              우리는 항상 최신 디자인 트렌드와 기술을
+                              업데이트하고 있습니다. 우리의 디자인 팀은
+                              역동적이고 창의적인 아이디어를 가지고 있으며, 최신
+                              디자인 트렌드를 반영하여 로고를 제작합니다.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ),
               },
             ]}
           />
