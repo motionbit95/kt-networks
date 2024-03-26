@@ -17,15 +17,17 @@
 .home_carousel {
     height: 738px;
     width: 100%;
-    display: flex;
-    background-position: 50% 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
+}
+.carousel-item{
+    width: 100%;
+    height: 100%;
+    /* opacity: 0; */
+    transition: opacity 1s ease;
 }
 
-.home_bg > .active {
-    display: none;
-    }
+.carousel-item :active {
+    opacity: 1;
+}
 
 
 .home_bottom_wrap {
@@ -46,8 +48,10 @@
     width: 100%;
     max-width: 1250px;
     @media screen and (max-width: 1000px) {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 60px;
+        gap: 10px;
     }
 }
 

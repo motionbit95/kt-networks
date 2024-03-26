@@ -1,4 +1,5 @@
 import React from "react";
+import { FaPen, FaPenSquare } from "react-icons/fa";
 import styled from "styled-components";
 
 const Footer = () => {
@@ -25,13 +26,37 @@ const Footer = () => {
           color: "white",
         }}
       >
-        <div style={{ textAlign: "center", fontSize: "36px" }}>
-          <div style={{ display: "flex" }}>
-            <div style={{ color: "red", fontWeight: "bold" }}>KTNETWORKS</div>와
-            함께 다양한 디자인의 세계에서
+        <div
+          style={{
+            textAlign: "center",
+            fontSize: "36px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "30px",
+          }}
+        >
+          <div>
+            <div style={{ display: "flex" }}>
+              <div style={{ color: "red", fontWeight: "bold" }}>KTNETWORKS</div>
+              와 함께 다양한 디자인의 세계에서
+            </div>
+            <div>고객의 비전을 현실로 만들어보세요.</div>
           </div>
-          <div>고객의 비전을 현실로 만들어보세요.</div>
-          <button>지금 바로 문의하기</button>
+          <div>
+            <a
+              href="/"
+              className="f20"
+              style={{
+                border: "1px solid white",
+                color: "white",
+                padding: "10px 40px",
+                textDecoration: "none",
+              }}
+            >
+              <FaPen style={{ marginRight: "10px", display: "inherit" }} />
+              지금 바로 문의하기
+            </a>
+          </div>
         </div>
       </div>
       <div
@@ -48,7 +73,7 @@ const Footer = () => {
         <div
           style={{
             width: "1200px",
-            padding: "60px 150px",
+            padding: "60px 40px",
           }}
         >
           <img

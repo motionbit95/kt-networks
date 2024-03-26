@@ -46,13 +46,17 @@ const Service = () => {
         </div>
         <div id="about_contents_wrap" className="about_contents_wrap">
           <div id="about_path" class="about_path">
-            <div>
+            <a href="/" style={{ textDecoration: "none" }}>
               <span>Home</span>
-            </div>
+            </a>
             <span>〉</span>
-            <div>
-              <span>회사소개</span>
-            </div>
+            <a
+              href="/service"
+              className="red"
+              style={{ textDecoration: "none" }}
+            >
+              <span>서비스</span>
+            </a>
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>

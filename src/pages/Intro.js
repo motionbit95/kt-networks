@@ -16,13 +16,13 @@ const Intro = () => {
         </div>
         <div id="about_contents_wrap" className="about_contents_wrap">
           <div id="about_path" class="about_path">
-            <div>
+            <a href="/" style={{ textDecoration: "none" }}>
               <span>Home</span>
-            </div>
+            </a>
             <span>〉</span>
-            <div>
+            <a href="/about" className="red" style={{ textDecoration: "none" }}>
               <span>회사소개</span>
-            </div>
+            </a>
           </div>
 
           <div id="about_contents" class="about_contents">

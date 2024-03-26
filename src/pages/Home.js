@@ -2,66 +2,124 @@ import React, { useEffect, useState } from "react";
 import "../styles/dashboard.css";
 
 const Home = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const contents = [
-    <div
-      style={{
-        //   display: "none",
-        width: "100%",
-        height: "100%",
-        backgroundImage: `url(https://cdn.imweb.me/thumbnail/20231217/ae5f42bdbd643.png)`,
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          padding: "0 40px",
-          gap: "50px",
-        }}
-      >
-        <div>내용1</div>
-        <div>내용</div>
-      </div>
-    </div>,
-    <div
-      style={{
-        //   display: "none",
-        width: "100%",
-        height: "100%",
-        backgroundImage: `url(https://cdn.imweb.me/thumbnail/20231217/4aca4c3c16b54.png)`,
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          padding: "0 40px",
-          gap: "50px",
-        }}
-      >
-        <div>내용2</div>
-        <div>내용</div>
-      </div>
-    </div>,
-  ];
+  const [currentItem, setCurrentItem] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === contents.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 10000); // 10초마다 내용 변경
+      setCurrentItem((prevItem) => (prevItem + 1) % 2);
+    }, 5000);
 
-    return () => clearInterval(interval); // 컴포넌트가 언마운트될 때 인터벌 제거
-  }, []); // currentIndex가 변경될 때마다 useEffect가 실행되어야 함
+    return () => clearInterval(interval);
+  }, []);
+
+  const items = [
+    {
+      id: 0,
+      content: (
+        <div
+          style={{
+            height: "738px",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            backgroundPosition: "50% 50%",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundImage: `url(https://cdn.imweb.me/thumbnail/20231217/ae5f42bdbd643.png)`,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              padding: "0 40px",
+              gap: "50px",
+            }}
+          >
+            <p className="f26">KT 네트웍스는</p>
+            <div
+              className="f48 bold"
+              style={{ display: "flex", gap: "30px", flexDirection: "column" }}
+            >
+              <p className="red">효과적인 전략으로</p>
+              <p>브랜드의 가치를 높이는 디자인 회사입니다.</p>
+            </div>
+            <div>
+              <a
+                href="/about"
+                className="f16 red"
+                style={{
+                  textDecoration: "none",
+                  border: "1px solid red",
+                  padding: "15px 30px",
+                }}
+              >
+                회사소개
+              </a>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 1,
+      content: (
+        <div
+          style={{
+            height: "738px",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            backgroundPosition: "50% 50%",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundImage: `url(https://cdn.imweb.me/thumbnail/20231217/4aca4c3c16b54.png)`,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              padding: "0 40px",
+              gap: "50px",
+            }}
+          >
+            <p className="f26">KT 네트웍스는</p>
+            <div
+              className="f48 bold"
+              style={{ display: "flex", gap: "30px", flexDirection: "column" }}
+            >
+              <p className="red">맞춤형 서비스로</p>
+              <p>고객의 성공을 위해 함께합니다.</p>
+            </div>
+            <div>
+              <a
+                href="/about"
+                className="f16 red"
+                style={{
+                  textDecoration: "none",
+                  border: "1px solid red",
+                  padding: "15px 30px",
+                }}
+              >
+                VIEW MORE
+              </a>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
 
   return (
     <div id="Container" className="Container">
       <div id="Section" className="Section">
         <div id="home_carousel" className="home_carousel">
-          내용
+          {items.map((item) => (
+            <div key={item.id}>{currentItem === item.id && item.content}</div>
+          ))}
         </div>
         <div
           style={{
