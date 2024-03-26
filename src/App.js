@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./styles/reset.css";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Fotter/Footer";
 import styled from "styled-components";
 import Service from "./pages/Service";
 import Intro from "./pages/Intro";

@@ -217,7 +217,7 @@ const Home = () => {
               >
                 <img
                   style={{ width: "100%", height: "100%" }}
-                  src="https://cdn.imweb.me/thumbnail/20240118/2d0e0f0cb3aea.png"
+                  src={require("../assets/homepageimg.png")}
                 />
               </div>
               <div
@@ -228,7 +228,7 @@ const Home = () => {
               >
                 <img
                   style={{ width: "100%", height: "100%" }}
-                  src="https://cdn.imweb.me/thumbnail/20240117/c4a9d404eaa98.png"
+                  src={require("../assets/Appimg.png")}
                 />
               </div>
               <div
@@ -239,7 +239,7 @@ const Home = () => {
               >
                 <img
                   style={{ width: "100%", height: "100%" }}
-                  src="https://cdn.imweb.me/thumbnail/20240117/c660e9508e3b9.png"
+                  src={require("../assets/productionimg.png")}
                 />
               </div>
               <div
@@ -250,7 +250,7 @@ const Home = () => {
               >
                 <img
                   style={{ width: "100%", height: "100%" }}
-                  src="https://cdn.imweb.me/thumbnail/20240117/19b7b196eb437.png"
+                  src={require("../assets/logodesignimg.png")}
                 />
               </div>
               <div
@@ -261,7 +261,7 @@ const Home = () => {
               >
                 <img
                   style={{ width: "100%", height: "100%" }}
-                  src="https://cdn.imweb.me/thumbnail/20240117/72e6ad9620837.png"
+                  src={require("../assets/designimg.png")}
                 />
               </div>
             </div>
