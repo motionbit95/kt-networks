@@ -214,7 +214,7 @@ const Intro = () => {
                   />
                 </div>
               </div>
-              <div class="bottom_column">
+              <div class="bottom_column_reverse">
                 <div class="bottom_content_text_box">
                   <div class="bottom_text_title">
                     <p className="f24 red bold">고객 중심</p>
@@ -256,7 +256,7 @@ const Intro = () => {
                   />
                 </div>
               </div>
-              <div class="bottom_column">
+              <div class="bottom_column_reverse">
                 <div class="bottom_content_text_box">
                   <div class="bottom_text_title">
                     <p className="f24 red bold">사회적 책임</p>

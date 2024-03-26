@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import styled from "styled-components";
 import Service from "./pages/Service";
 import Intro from "./pages/Intro";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div style={{ flex: 1, width: "100%" }}>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<Intro />} />
             <Route path="/service" element={<Service />} />
           </Routes>
