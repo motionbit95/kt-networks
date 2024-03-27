@@ -13,7 +13,7 @@ function App() {
   return (
     <Appstyle>
       <Header />
-      <div style={{ flex: 1, width: "100%" }}>
+      <div style={{ width: "100%" }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -32,8 +32,8 @@ export default App;
 const Appstyle = styled.div`
   width: 100%;
   height: auto;
+  min-width: 350px;
   min-height: 100vh;
-  margin-top: 90px;
   display: flex;
   flex-direction: column;
   position: relative;

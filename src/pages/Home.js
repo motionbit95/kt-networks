@@ -16,48 +16,22 @@ const Home = () => {
     {
       id: 0,
       content: (
-        <div
-          style={{
-            height: "738px",
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            backgroundPosition: "50% 50%",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundImage: `url(https://cdn.imweb.me/thumbnail/20231217/ae5f42bdbd643.png)`,
-          }}
-        >
+        <div>
           <div
+            className="home_carousel_img"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              padding: "0 40px",
-              gap: "50px",
+              backgroundImage: `url(https://cdn.imweb.me/thumbnail/20231217/ae5f42bdbd643.png)`,
             }}
-          >
-            <p className="f26">KT 네트웍스는</p>
-            <div
-              className="f48 bold"
-              style={{ display: "flex", gap: "30px", flexDirection: "column" }}
-            >
-              <p className="red">효과적인 전략으로</p>
-              <p>브랜드의 가치를 높이는 디자인 회사입니다.</p>
+          />
+          <div className="home_carousel_item">
+            <div className="f26">KT 네트웍스는</div>
+            <div className="f48 bold text_colume_box">
+              <div className="red">효과적인 전략으로</div>
+              <div>브랜드의 가치를 높이는 디자인 회사입니다.</div>
             </div>
-            <div>
-              <a
-                href="/about"
-                className="f16 red"
-                style={{
-                  textDecoration: "none",
-                  border: "1px solid red",
-                  padding: "15px 30px",
-                }}
-              >
-                회사소개
-              </a>
-            </div>
+            <a href="/about" className="carousel_button">
+              <div>회사소개</div>
+            </a>
           </div>
         </div>
       ),
@@ -65,48 +39,22 @@ const Home = () => {
     {
       id: 1,
       content: (
-        <div
-          style={{
-            height: "738px",
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            backgroundPosition: "50% 50%",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundImage: `url(https://cdn.imweb.me/thumbnail/20231217/4aca4c3c16b54.png)`,
-          }}
-        >
+        <div>
           <div
+            className="home_carousel_img"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              padding: "0 40px",
-              gap: "50px",
+              backgroundImage: `url(https://cdn.imweb.me/thumbnail/20231217/4aca4c3c16b54.png)`,
             }}
-          >
-            <p className="f26">KT 네트웍스는</p>
-            <div
-              className="f48 bold"
-              style={{ display: "flex", gap: "30px", flexDirection: "column" }}
-            >
-              <p className="red">맞춤형 서비스로</p>
-              <p>고객의 성공을 위해 함께합니다.</p>
+          />
+          <div className="home_carousel_item">
+            <div className="f26">KT 네트웍스는</div>
+            <div className="f48 bold text_colume_box">
+              <div className="red">맞춤형 서비스로</div>
+              <div>고객의 성공을 위해 함께합니다.</div>
             </div>
-            <div>
-              <a
-                href="/about"
-                className="f16 red"
-                style={{
-                  textDecoration: "none",
-                  border: "1px solid red",
-                  padding: "15px 30px",
-                }}
-              >
-                VIEW MORE
-              </a>
-            </div>
+            <a href="/about" className="carousel_button">
+              <div>VIEW MORE</div>
+            </a>
           </div>
         </div>
       ),
@@ -121,66 +69,27 @@ const Home = () => {
             <div key={item.id}>{currentItem === item.id && item.content}</div>
           ))}
         </div>
-        <div
-          style={{
-            height: "659px",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#d9d9d9",
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              padding: "0 70px",
-              flex: 4,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "30px",
-              }}
-            >
-              <p className="f16 red bold">ABOUT US</p>
-              <div
-                className="f36 bold"
-                style={{
-                  gap: "10px",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <p>KTNETWORKS 는</p>
-                <p>고객의 성공을 위해 노력하는</p>
-                <p>전문가들로 이루어진 팀입니다.</p>
+        <div className="home_about_wrap">
+          <div className="home_about_contents">
+            <div className="home_about_text">
+              <div className="f16 red bold">ABOUT US</div>
+              <div className="f36 bold text_colume_box">
+                <div>KTNETWORKS 는</div>
+                <div className="red bold">고객의 성공을 위해 노력하는</div>
+                <div>전문가들로 이루어진 팀입니다.</div>
               </div>
               <div className="f20">
-                <p>우리는 고객의 비전과 목표를 이해하고,</p>
-                <p>최적의 전략과 솔루션을 제공하여 그들의 성공을 돕습니다.</p>
+                <div>우리는 고객의 비전과 목표를 이해하고,</div>
+                <div>
+                  최적의 전략과 솔루션을 제공하여 그들의 성공을 돕습니다.
+                </div>
               </div>
-              <a
-                href="/about"
-                style={{
-                  backgroundColor: "#e50012",
-                  textDecoration: "none",
-                  color: "white",
-                  padding: "10px 60px",
-                  fontSize: "16px",
-                }}
-              >
-                회사소개
+              <a href="/about" className="home_about_button">
+                <div>회사소개</div>
               </a>
             </div>
           </div>
-          <div style={{ flex: 3, width: "100%", height: "100%" }}>
+          <div className="home_about_bg">
             <img
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
               src="https://cdn.imweb.me/thumbnail/20231212/d27071d578044.jpg"
@@ -209,56 +118,31 @@ const Home = () => {
               </div>
             </div>
             <div class="home_bottom_contents">
-              <div
-                style={{
-                  flex: 1,
-                  border: "1px solid red",
-                }}
-              >
+              <div className="home_bottom_outline">
                 <img
                   style={{ width: "100%", height: "100%" }}
                   src={require("../assets/homepageimg.png")}
                 />
               </div>
-              <div
-                style={{
-                  flex: 1,
-                  border: "1px solid red",
-                }}
-              >
+              <div className="home_bottom_outline">
                 <img
                   style={{ width: "100%", height: "100%" }}
                   src={require("../assets/Appimg.png")}
                 />
               </div>
-              <div
-                style={{
-                  flex: 1,
-                  border: "1px solid red",
-                }}
-              >
+              <div className="home_bottom_outline">
                 <img
                   style={{ width: "100%", height: "100%" }}
                   src={require("../assets/productionimg.png")}
                 />
               </div>
-              <div
-                style={{
-                  flex: 1,
-                  border: "1px solid red",
-                }}
-              >
+              <div className="home_bottom_outline">
                 <img
                   style={{ width: "100%", height: "100%" }}
                   src={require("../assets/logodesignimg.png")}
                 />
               </div>
-              <div
-                style={{
-                  flex: 1,
-                  border: "1px solid red",
-                }}
-              >
+              <div className="home_bottom_outline">
                 <img
                   style={{ width: "100%", height: "100%" }}
                   src={require("../assets/designimg.png")}
@@ -269,7 +153,7 @@ const Home = () => {
         </div>
         <div
           style={{
-            height: "1000px",
+            height: "auto",
             backgroundColor: "#d9d9d9",
             alignItems: "center",
             display: "flex",
@@ -278,7 +162,7 @@ const Home = () => {
         >
           <div
             style={{
-              borderLeft: "1px solid red",
+              borderLeft: "1px solid #999",
               height: "200px",
               display: "flex",
               marginBottom: "50px",
@@ -295,7 +179,16 @@ const Home = () => {
             <div>
               <p className="f16 red bold">LOCATION</p>
             </div>
-            <div>지도 API</div>
+            <div
+              style={{
+                width: "100%",
+                height: "auto",
+                padding: "20px",
+                backgroundColor: "red",
+              }}
+            >
+              지도 API
+            </div>
           </div>
         </div>
       </div>

@@ -23,10 +23,12 @@ function Header() {
       {isDesktop ? (
         <div className="desktopheader">
           <div className="hstack">
-            <img
-              src={require("../../assets/ktNetwork_logo.png")}
-              className="desktop_logo"
-            />
+            <a href="/">
+              <img
+                src={require("../../assets/ktNetwork_logo.png")}
+                className="desktop_logo"
+              />
+            </a>
             <div className="header_menu">
               <a className="header_link" href="/about">
                 회사소개
@@ -42,10 +44,12 @@ function Header() {
           <div style={{ position: "absolute", left: "15px" }}>
             <Drawer />
           </div>
-          <img
-            src={require("../../assets/ktNetwork_logo.png")}
-            style={{ width: "auto", height: "24px" }}
-          />
+          <a href="/">
+            <img
+              src={require("../../assets/ktNetwork_logo.png")}
+              style={{ width: "auto", height: "24px" }}
+            />
+          </a>
         </div>
       )}
     </>
