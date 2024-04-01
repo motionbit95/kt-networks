@@ -26,8 +26,11 @@ const Home = () => {
           <div className="home_carousel_item">
             <div className="f26">KT 네트웍스는</div>
             <div className="f48 bold text_colume_box">
-              <div className="red">효과적인 전략으로</div>
-              <div>브랜드의 가치를 높이는 디자인 회사입니다.</div>
+              <div className="red">효과적인 마케팅 전략으로</div>
+              <div className="line" />
+              <div className="black title">
+                {`브랜드의 가치를 높이는 \n디자인 회사입니다.`}
+              </div>
             </div>
             <a href="/about" className="carousel_button">
               <div>회사소개</div>
@@ -49,8 +52,9 @@ const Home = () => {
           <div className="home_carousel_item">
             <div className="f26">KT 네트웍스는</div>
             <div className="f48 bold text_colume_box">
-              <div className="red">맞춤형 서비스로</div>
-              <div>고객의 성공을 위해 함께합니다.</div>
+              <div className="red">맞춤형 광고 서비스로</div>
+              <div className="line" />
+              <div className="black title">{`고객의 성공을 위해 \n함께합니다.`}</div>
             </div>
             <a href="/about" className="carousel_button">
               <div>VIEW MORE</div>
@@ -72,11 +76,12 @@ const Home = () => {
         <div className="home_about_wrap">
           <div className="home_about_contents">
             <div className="home_about_text">
-              <div className="f16 red bold">ABOUT US</div>
+              <div className="f16 red bold wide-text">ABOUT US</div>
               <div className="f36 bold text_colume_box">
-                <div>KTNETWORKS 는</div>
+                <div className="black title">KTNETWORKS 는</div>
                 <div className="red bold">고객의 성공을 위해 노력하는</div>
-                <div>전문가들로 이루어진 팀입니다.</div>
+                <div className="line" />
+                <div className="black title">전문가들로 이루어진 팀입니다.</div>
               </div>
               <div className="f20">
                 <div>우리는 고객의 비전과 목표를 이해하고,</div>
@@ -99,7 +104,10 @@ const Home = () => {
         <div className="home_bottom_wrap">
           <div className="home_bottom_container">
             <div className="bottom_title_box">
-              <p className="f16 red bold" style={{ marginBottom: "35px" }}>
+              <p
+                className="f16 red bold wide-text"
+                style={{ marginBottom: "35px" }}
+              >
                 SERVICE
               </p>
               <div className="f36 bold" style={{ marginBottom: "35px" }}>
@@ -116,37 +124,37 @@ const Home = () => {
                   최고의 결과물을 제공합니다.
                 </p>
               </div>
-            </div>
-            <div class="home_bottom_contents">
-              <div className="home_bottom_outline">
-                <img
-                  style={{ width: "100%", height: "100%" }}
-                  src={require("../assets/homepageimg.png")}
-                />
-              </div>
-              <div className="home_bottom_outline">
-                <img
-                  style={{ width: "100%", height: "100%" }}
-                  src={require("../assets/Appimg.png")}
-                />
-              </div>
-              <div className="home_bottom_outline">
-                <img
-                  style={{ width: "100%", height: "100%" }}
-                  src={require("../assets/productionimg.png")}
-                />
-              </div>
-              <div className="home_bottom_outline">
-                <img
-                  style={{ width: "100%", height: "100%" }}
-                  src={require("../assets/logodesignimg.png")}
-                />
-              </div>
-              <div className="home_bottom_outline">
-                <img
-                  style={{ width: "100%", height: "100%" }}
-                  src={require("../assets/designimg.png")}
-                />
+              <div class="home_bottom_contents">
+                <div className="home_bottom_outline">
+                  <img
+                    style={{ width: "100%", height: "100%" }}
+                    src={require("../assets/homepageimg.png")}
+                  />
+                </div>
+                <div className="home_bottom_outline">
+                  <img
+                    style={{ width: "100%", height: "100%" }}
+                    src={require("../assets/Appimg.png")}
+                  />
+                </div>
+                <div className="home_bottom_outline">
+                  <img
+                    style={{ width: "100%", height: "100%" }}
+                    src={require("../assets/productionimg.png")}
+                  />
+                </div>
+                <div className="home_bottom_outline">
+                  <img
+                    style={{ width: "100%", height: "100%" }}
+                    src={require("../assets/logodesignimg.png")}
+                  />
+                </div>
+                <div className="home_bottom_outline">
+                  <img
+                    style={{ width: "100%", height: "100%" }}
+                    src={require("../assets/designimg.png")}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -154,7 +162,7 @@ const Home = () => {
         <div
           style={{
             height: "auto",
-            backgroundColor: "#d9d9d9",
+            backgroundColor: "#f1f1f1",
             alignItems: "center",
             display: "flex",
             flexDirection: "column",
@@ -174,20 +182,29 @@ const Home = () => {
               flexDirection: "column",
               alignItems: "center",
               gap: "50px",
+              width: "100%",
             }}
           >
             <div>
-              <p className="f16 red bold">LOCATION</p>
+              <p
+                className="f16 red bold wide-text"
+                style={{ backgroundColor: "transparent" }}
+              >
+                LOCATION
+              </p>
             </div>
             <div
               style={{
+                display: "flex",
                 width: "100%",
-                height: "auto",
+                height: "500px",
                 padding: "20px",
-                backgroundColor: "red",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "#d9d9d9",
               }}
             >
-              지도 API
+              지도가 삽입될 자리입니다.
             </div>
           </div>
         </div>

@@ -28,14 +28,20 @@ const Footer = () => {
                     justifyContent: "center",
                   }}
                 >
-                  <div style={{ color: "red", fontWeight: "bold" }}>
+                  <div
+                    className="title"
+                    style={{
+                      color: "red",
+                      fontWeight: "bold",
+                    }}
+                  >
                     KTNETWORKS
                   </div>
-                  <div>와 함께</div>
+                  <div className="title">와 함께</div>
                 </div>
-                <div>다양한 디자인의 세계에서</div>
+                <div className="title">다양한 디자인의 세계에서</div>
               </div>
-              <div>고객의 비전을 현실로 만들어보세요.</div>
+              <div className="title">고객의 비전을 현실로 만들어보세요.</div>
             </div>
             <div>
               <a href="/" className="footer_button">
