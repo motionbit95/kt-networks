@@ -12,6 +12,13 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const [title, setTitle] = useState("ktnetworks");
+  const updateTitle = () => {
+    const htmlTitle = document.querySelector("title ");
+    htmlTitle.innerHTML = title;
+  };
+  useEffect(updateTitle, [title]);
+
   const items = [
     {
       id: 0,

@@ -8,22 +8,33 @@ import styled from "styled-components";
 import Service from "./pages/Service";
 import Intro from "./pages/Intro";
 import Home from "./pages/Home";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
-    <Appstyle>
-      <Header />
-      <div style={{ width: "100%" }}>
+    <>
+      {!window.location.pathname.includes("/admin") ? (
+        <Appstyle>
+          <Header />
+          <div style={{ width: "100%" }}>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<Intro />} />
+                <Route path="/service" element={<Service />} />
+              </Routes>
+            </BrowserRouter>
+          </div>
+          <Footer />
+        </Appstyle>
+      ) : (
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<Intro />} />
-            <Route path="/service" element={<Service />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
         </BrowserRouter>
-      </div>
-      <Footer />
-    </Appstyle>
+      )}
+    </>
   );
 }
 
