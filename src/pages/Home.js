@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/dashboard.css";
+import { CustomOverlayMap, Map, MapMarker } from "react-kakao-maps-sdk";
 
 const Home = () => {
   const [currentItem, setCurrentItem] = useState(0);
@@ -208,10 +209,29 @@ const Home = () => {
                 padding: "20px",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "#d9d9d9",
+                // backgroundColor: "#d9d9d9",
+                marginBottom: "50px",
               }}
             >
-              지도가 삽입될 자리입니다.
+              <Map
+                center={{ lat: 35.148845, lng: 129.059561 }} // 지도의 중심 좌표
+                style={{ width: "1000px", height: "500px" }} // 지도 크기
+                level={4} // 지도 확대 레벨
+              >
+                <MapMarker position={{ lat: 35.148845, lng: 129.059561 }}>
+                  <a
+                    href="https://map.kakao.com/?urlX=969215.0&urlY=463876.0&name=%EB%B6%80%EC%82%B0%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%8C%80%EB%A1%9C%20630&map_type=TYPE_MAP&from=roughmap"
+                    style={{
+                      marginInline: "10px",
+                      color: "#000",
+                      fontSize: "12px",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    부산 부산진구 중앙대로 630
+                  </a>
+                </MapMarker>
+              </Map>
             </div>
           </div>
         </div>

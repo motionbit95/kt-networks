@@ -246,11 +246,15 @@ function Admin(props) {
               <Tab>상품관리</Tab>
               <Tab>결제관리</Tab>
             </TabList>{" "}
-            <IconButton
-              size={{ base: "sm", md: "md" }}
-              icon={colorMode === "light" ? <BsMoonFill /> : <BsSunFill />}
-              onClick={toggleColorMode}
-            />
+            {(window.location.hostname === "localhost" ||
+              window.location.hostname === "127.0.0.1" ||
+              window.location.hostname === "motionbit.kr") && (
+              <IconButton
+                size={{ base: "sm", md: "md" }}
+                icon={colorMode === "light" ? <BsMoonFill /> : <BsSunFill />}
+                onClick={toggleColorMode}
+              />
+            )}
           </HStack>
           <TabPanels>
             <TabPanel px={0}>
