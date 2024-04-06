@@ -36,6 +36,9 @@ function Header() {
               <a className="header_link" href="/service">
                 서비스
               </a>
+              <a className="header_link" href="/product">
+                상품구매
+              </a>
             </div>
           </div>
         </div>

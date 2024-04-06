@@ -9,6 +9,9 @@ import Service from "./pages/Service";
 import Intro from "./pages/Intro";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
+import Product from "./pages/Product";
+import Payment from "./pages/Payment";
+import Result from "./pages/Result";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<Intro />} />
                 <Route path="/service" element={<Service />} />
+                <Route path="/product" element={<Product />} />
+                <Route path="/payment/*" element={<Payment />} />
+                <Route path="/result/*" element={<Result />} />
               </Routes>
             </BrowserRouter>
           </div>

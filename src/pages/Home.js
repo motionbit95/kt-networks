@@ -90,7 +90,7 @@ const Home = () => {
                 <div className="line" />
                 <div className="black title">전문가들로 이루어진 팀입니다.</div>
               </div>
-              <div className="f20">
+              <div className="black f20">
                 <div>우리는 고객의 비전과 목표를 이해하고,</div>
                 <div>
                   최적의 전략과 솔루션을 제공하여 그들의 성공을 돕습니다.

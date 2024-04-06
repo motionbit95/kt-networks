@@ -51,7 +51,7 @@ const Service = () => {
           <div id="path_box" class="path_box">
             <div style={{ padding: "0px 15px" }}>
               <div className="path_item">
-                <a href="/" style={{ textDecoration: "none", color: "black" }}>
+                <a href="/" style={{ textDecoration: "none", opacity: "0.5" }}>
                   <span>Home</span>
                 </a>
                 <span>〉</span>

@@ -78,7 +78,7 @@ export const missionData = [
       </div>
     ),
     discription: (
-      <div class="f16">
+      <div class="black f16">
         <div>
           우리는 창의적인 아이디어와 혁신적인 접근을 통해 고객의 기대를 초월하는
           광고를 제작합니다.
@@ -98,7 +98,7 @@ export const missionData = [
       </div>
     ),
     discription: (
-      <div class="f16">
+      <div class="black f16">
         <div>
           우리는 고객의 성공을 최우선으로 생각합니다. 고객의 니즈와 목표를
           이해하고, 맞춤형 솔루션을 제공하여 고객의 비즈니스 성장을 돕습니다.
@@ -115,7 +115,7 @@ export const missionData = [
       </div>
     ),
     discription: (
-      <div class="f16">
+      <div class="black f16">
         <div>
           우리는 고객의 성공을 최우선으로 생각합니다. 고객의 니즈와 목표를
           이해하고, 맞춤형 솔루션을 제공하여 고객의 비즈니스 성장을 돕습니다.
@@ -132,7 +132,7 @@ export const missionData = [
       </div>
     ),
     discription: (
-      <div class="f16">
+      <div class="black f16">
         <div>
           우리는 사회적 책임을 중요하게 생각합니다. 우리의 광고는 윤리적이고
           사회적 가치를 존중합니다. 우리는 고객과의 협력을 통해 성공적인 광고
@@ -192,7 +192,6 @@ const Intro = () => {
                   href="/"
                   style={{
                     textDecoration: "none",
-                    color: "black",
                     opacity: "0.5",
                   }}
                 >
