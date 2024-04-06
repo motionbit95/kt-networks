@@ -108,11 +108,11 @@ function Admin(props) {
 
   const getPayment = async () => {
     const strStart = paymentSearch.startDate
-      .replace("T", "")
+      ?.replace("T", "")
       .replace(":", "")
       .replaceAll("-", "");
     const strEnd = paymentSearch.endDate
-      .replace("T", "")
+      ?.replace("T", "")
       .replace(":", "")
       .replaceAll("-", "");
 
