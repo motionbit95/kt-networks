@@ -16,7 +16,8 @@ import Result from "./pages/Result";
 function App() {
   return (
     <>
-      {!window.location.pathname.includes("/admin") ? (
+      {!window.location.pathname.includes("/admin") &&
+      !window.location.pathname.includes("/paymentPopup") ? (
         <Appstyle>
           <Header />
           <div style={{ width: "100%" }}>
