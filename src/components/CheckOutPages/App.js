@@ -1,12 +1,54 @@
-import { Box, Flex, Stack, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Stack, useColorModeValue, Button } from "@chakra-ui/react";
 import { OrderSummary } from "./OrderSummary";
 import { PaymentInformation } from "./PaymentInformation";
 import { ShippingInformation } from "./ShippingInformation";
 import { ShippingMethod } from "./ShippingMethod";
 import { useState } from "react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import KSPay from "../../pages/KSPay";
+
+import { useLocation, useNavigate } from "react-router-dom";
+
+function BasicUsage() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onOpen}>Open Modal</Button>
+
+      <Modal isOpen={isOpen} onClose={onClose} size={"2xl"}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <KSPay />
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+}
 
 export const CheckOutPages = (props) => {
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
 
   const onChange = (name, e) => {
     if (name) {
@@ -27,7 +69,8 @@ export const CheckOutPages = (props) => {
   };
   const handleClick = () => {
     console.log(formData);
-    alert("결제 모듈 검토중");
+
+    navigate("/kspay", { state: { ...formData } });
   };
 
   return (
@@ -37,6 +80,7 @@ export const CheckOutPages = (props) => {
         "linear(to-l, gray.700 50%, gray.800 50%)"
       )}
     >
+      {/* <BasicUsage /> */}
       <Flex maxW="8xl" mx="auto" direction={{ base: "column", md: "row" }}>
         <Box
           flex="1"

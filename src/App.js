@@ -12,17 +12,19 @@ import Admin from "./pages/Admin";
 import Product from "./pages/Product";
 import Payment from "./pages/Payment";
 import Result from "./pages/Result";
+import KSPay from "./pages/KSPay";
+import KSRcv from "./pages/KSRcv";
 
 function App() {
   return (
     <>
-      {!window.location.pathname.includes("/admin") &&
-      !window.location.pathname.includes("/paymentPopup") ? (
+      {!window.location.pathname.includes("/admin") ? (
         <Appstyle>
           <Header />
           <div style={{ width: "100%" }}>
             <BrowserRouter>
               <Routes>
+                <Route path="/kspay" element={<KSPay />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<Intro />} />
                 <Route path="/service" element={<Service />} />
@@ -38,6 +40,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/admin" element={<Admin />} />
+            <Route path="/kspay_wh_rcv" element={<KSRcv />} />
           </Routes>
         </BrowserRouter>
       )}

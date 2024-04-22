@@ -15,6 +15,7 @@
     "express": "^4.19.2",
     "firebase": "^10.10.0",
     "framer-motion": "^11.0.24",
+    "java": "^0.14.0",
     "jquery": "^3.7.1",
     "react": "^18.2.0",
     "react-datepicker": "^6.6.0",
@@ -28,7 +29,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node ./web.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://pay.ksnet.co.kr/kspay/webfep"
+  "proxy": "http://localhost:8001"
 }
