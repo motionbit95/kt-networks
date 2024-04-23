@@ -23,6 +23,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase_conf";
 import { CheckOutPages } from "../components/CheckOutPages/App";
+import KSPay from "./KSPay";
 
 function Payment(props) {
   const navigate = useNavigate();
@@ -146,8 +147,9 @@ function Payment(props) {
     return Math.random().toString(16).substr(2, length);
   };
   return (
-    <Box py={{ base: 8, md: 16 }}>
-      <CheckOutPages product={location.state} />
+    <Box py={{ base: 16, md: 24 }}>
+      <KSPay product={product} />
+      {/* <CheckOutPages product={location.state} /> */}
     </Box>
     // <Container maxW={"container.xl"}>
     //   <Stack
