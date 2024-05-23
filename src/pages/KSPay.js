@@ -109,7 +109,7 @@ function KSPay(props) {
             spacing="6"
             p={{ base: "4", lg: "8" }}
           >
-            <FormControl id="period" isRequired>
+            {/* <FormControl id="period" isRequired>
               <FormLabel color={useColorModeValue("gray.700", "gray.200")}>
                 계약기간
               </FormLabel>
@@ -138,7 +138,7 @@ function KSPay(props) {
                   customInput={<Input bgColor={"white"} />}
                 />
               </HStack>
-            </FormControl>
+            </FormControl> */}
             <FormControl isRequired>
               <FormLabel>대표자 성함</FormLabel>
               <Input

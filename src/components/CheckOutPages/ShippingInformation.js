@@ -45,7 +45,7 @@ export const ShippingInformation = (props) => {
     <Stack spacing={{ base: "6", md: "10" }}>
       <Heading size="md">결제자 정보</Heading>
       <Stack spacing={{ base: "6", md: "8" }}>
-        <FormControl id="period">
+        {/* <FormControl id="period">
           <FormLabel color={useColorModeValue("gray.700", "gray.200")}>
             계약기간
           </FormLabel>
@@ -70,7 +70,7 @@ export const ShippingInformation = (props) => {
               customInput={<Input />}
             />
           </HStack>
-        </FormControl>
+        </FormControl> */}
         <FormControl id="business_name">
           <FormLabel color={useColorModeValue("gray.700", "gray.200")}>
             상호명

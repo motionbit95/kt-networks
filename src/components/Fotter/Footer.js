@@ -61,13 +61,15 @@ const Footer = () => {
             <div className="footer_info_box">
               <div className="footer_info">
                 <div>Tel. 02-6953-0891 | Fax : 051-635-0892</div>
+                <div>통신판매신고번호 : 제 2024-부산진-0770호</div>
+                <div>주소 : 부산 동구 범일로 90번길 17 603호</div>
                 {/* <div>
                   Addr. Seoul, Korea ㅣ 사업자등록번호 : 619-86-03182 ㅣ
                   법인등록번호 : 180111-1526863
                 </div> */}
                 <div className="footer_info_detail">
-                  <div>Addr. Seoul, Korea</div>
-                  <div className="vr" />
+                  {/* <div>Addr. Seoul, Korea</div> */}
+                  {/* <div className="vr" /> */}
                   <div>사업자등록번호 : 619-86-03182</div>
                   <div className="vr" />
                   <div>법인등록번호 : 180111-1526863</div>

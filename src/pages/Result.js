@@ -74,14 +74,14 @@ function Result(props) {
         >
           <Table size={{ base: "sm", md: "md" }}>
             <Tbody>
-              <Tr>
+              {/* <Tr>
                 <Td>계약기간</Td>
                 <Td>
                   {data?.startDate}
                   {" ~ "}
                   {data?.endDate}
                 </Td>
-              </Tr>
+              </Tr> */}
 
               <Tr>
                 <Td>상호명</Td>
