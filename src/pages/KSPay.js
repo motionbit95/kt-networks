@@ -45,7 +45,8 @@ function KSPay(props) {
     }
 
     console.log({ _frm }, getLocalUrl("kspay_wh_rcv"));
-    _frm.sndReply.value = getLocalUrl("kspay_wh_rcv");
+    _frm.sndReply.value =
+      "https://kspay.ksnet.to/store/KSPayWebV1.4/web_host/post_send.jsp";
     await window._pay(_frm);
   }
   function getLocalUrl(mypage) {
