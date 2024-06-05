@@ -73,7 +73,7 @@ function Payment(props) {
     const order_num = random(8);
 
     const raw = JSON.stringify({
-      mid: "2999199990",
+      mid: "2001107188",
       orderNumb: order_num,
       userName: formData.userName,
       userEmail: "",
@@ -171,7 +171,7 @@ function Payment(props) {
                   </Text>
                   <Card>
                     <Stack borderRadius={"lg"} p={4}>
-                      <FormControl isRequired>
+                      {/* <FormControl isRequired>
                         <FormLabel>계약기간</FormLabel>
                         <HStack>
                           <DatePicker
@@ -192,7 +192,7 @@ function Payment(props) {
                             customInput={<Input />}
                           />
                         </HStack>
-                      </FormControl>
+                      </FormControl> */}
                       <FormControl isRequired>
                         <FormLabel>상호명</FormLabel>
                         <Input

@@ -174,7 +174,7 @@ function Admin(props) {
     );
 
     const raw = JSON.stringify({
-      mid: "2999199990",
+      mid: "2001107188",
       cancelType: "FULL",
       orgTradeKeyType: "TID",
       orgTradeKey: payment.data.tid,
@@ -478,12 +478,12 @@ function Admin(props) {
                           viewArrow={paymentSearch.order === "product_name"}
                         />
                         {/* <Th>계약상품</Th> */}
-                        <OrderHeader
+                        {/* <OrderHeader
                           displayText={"계약기간"}
                           parameter={"endDate"}
                           onOrder={handleOrder}
                           viewArrow={paymentSearch.order === "endDate"}
-                        />
+                        /> */}
                         <OrderHeader
                           displayText={"상호명"}
                           parameter={"business_name"}
