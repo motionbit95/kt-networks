@@ -224,7 +224,7 @@ const Home = () => {
                     style={{
                       marginInline: "10px",
                       color: "#000",
-                      fontSize: "12px",
+                      fontSize: "11px",
                       textDecoration: "underline",
                     }}
                   >

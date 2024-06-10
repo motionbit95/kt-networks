@@ -73,6 +73,7 @@ function Payment(props) {
     const order_num = random(8);
 
     const raw = JSON.stringify({
+      // mid: "2999199990",
       mid: "2001107188",
       orderNumb: order_num,
       userName: formData.userName,

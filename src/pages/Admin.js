@@ -175,6 +175,7 @@ function Admin(props) {
 
     const raw = JSON.stringify({
       mid: "2001107188",
+      // mid: "2999199990",
       cancelType: "FULL",
       orgTradeKeyType: "TID",
       orgTradeKey: payment.data.tid,
