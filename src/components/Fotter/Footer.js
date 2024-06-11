@@ -60,7 +60,9 @@ const Footer = () => {
             <div className="hr" />
             <div className="footer_info_box">
               <div className="footer_info">
-                <div>Tel. 02-6953-0891 | Fax : 051-635-0892</div>
+                <div>
+                  대표자명 : 김남훈 | Tel. 02-6953-0891 | Fax : 051-635-0892
+                </div>
                 <div>통신판매신고번호 : 제 2024-부산진-0770호</div>
                 <div>주소 : 부산광역시 부산진구 중앙대로 630, BCC 건물 2층</div>
                 {/* <div>
