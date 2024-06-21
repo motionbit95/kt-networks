@@ -532,9 +532,9 @@ function Admin(props) {
                         >
                           <Td>{getDateTime(payment?.tradeDateTime)}</Td>
                           <Td>{payment.product_name}</Td>
-                          <Td>
+                          {/* <Td>
                             {payment?.startDate} ~ {payment?.endDate}
-                          </Td>
+                          </Td> */}
                           <Td>{payment.business_name}</Td>
                           <Td>{payment.userName}</Td>
                           <Td>{payment?.issuerCardName}</Td>
