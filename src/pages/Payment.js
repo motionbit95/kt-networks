@@ -77,19 +77,19 @@ function Payment(props) {
       mid: "2001107188",
       orderNumb: order_num,
       userName: formData.userName,
-      userEmail: "",
+      // userEmail: "",
       productType: "REAL",
       productName: product.product_name,
       totalAmount: product.product_price,
       taxFreeAmount: "0",
-      payload: "",
+      // payload: "",
       interestType: "PG",
       cardNumb: card_num,
       expiryDate: expire_date,
       installMonth: formData.installMonth,
       currencyType: "KRW",
-      password: formData.password,
-      userInfo: formData.userInfo,
+      // password: formData.password,
+      // userInfo: formData.userInfo,
     });
 
     const requestOptions = {
@@ -98,7 +98,7 @@ function Payment(props) {
       body: raw,
     };
 
-    fetch("/api/v1/card/pay/oldcert", requestOptions)
+    fetch("/api/v1/card/pay/noncert", requestOptions)
       .then((response) => response.text())
       .then(async (result) => {
         const res = JSON.parse(result);
@@ -294,7 +294,7 @@ function Payment(props) {
                             />
                           </HStack>
                         </FormControl>
-                        <FormControl isRequired>
+                        {/* <FormControl isRequired>
                           <FormLabel>카드비밀번호</FormLabel>
                           <HStack>
                             <Input
@@ -304,7 +304,7 @@ function Payment(props) {
                               onChange={onChange}
                             />
                           </HStack>
-                        </FormControl>
+                        </FormControl> */}
                       </HStack>
                       <FormControl isRequired>
                         <FormLabel>할부개월수</FormLabel>
@@ -319,14 +319,14 @@ function Payment(props) {
                           ))}
                         </Select>
                       </FormControl>
-                      <FormControl isRequired>
+                      {/* <FormControl isRequired>
                         <FormLabel>사용자정보</FormLabel>
                         <Input
                           name="userInfo"
                           onChange={onChange}
                           placeholder="생년월일 6자리 혹은 사업자등록번호 10자리"
                         />
-                      </FormControl>
+                      </FormControl> */}
                     </Stack>
                   </Card>
                 </Stack>
