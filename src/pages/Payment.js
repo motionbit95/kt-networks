@@ -67,13 +67,13 @@ function Payment(props) {
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append(
       "Authorization",
-      "pgapi MjAwMTEwNzE4NzpNQTAxOjQ2REVFQkExMDI0NUZDRjk5RDgxODc0NjFEMDFENTUx"
+      "pgapi MjAwMTEwNzE4ODpNQTAxOjc1OTVENzE4NkJBMEVFMTIyMENDNUEyMzkxOEUxMTMw"
     );
 
     const order_num = random(8);
 
     const raw = JSON.stringify({
-      mid: "2001107187",
+      mid: "2001107188",
       orderNumb: order_num,
       userName: formData.userName,
       userEmail: "",

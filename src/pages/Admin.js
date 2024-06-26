@@ -170,15 +170,17 @@ function Admin(props) {
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append(
       "Authorization",
-      "pgapi Mjk5OTE5OTk5MDpNQTAxOjNEMUVBOEVBRUM0NzA1MTFBMkIyNUVFMzQwRkI5ODQ4"
+      "pgapi MjAwMTEwNzE4ODpNQTAxOjc1OTVENzE4NkJBMEVFMTIyMENDNUEyMzkxOEUxMTMw"
     );
+
+    console.log(payment);
 
     const raw = JSON.stringify({
       mid: "2001107188",
       // mid: "2999199990",
       cancelType: "FULL",
       orgTradeKeyType: "TID",
-      orgTradeKey: payment.data.tid,
+      orgTradeKey: payment.tid,
     });
 
     const requestOptions = {
