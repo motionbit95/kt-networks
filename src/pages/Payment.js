@@ -67,30 +67,46 @@ function Payment(props) {
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append(
       "Authorization",
-      "pgapi Mjk5OTE5OTk5MDpNQTAxOjNEMUVBOEVBRUM0NzA1MTFBMkIyNUVFMzQwRkI5ODQ4"
+      "pgapi MjAwMTEwNzE4NzpNQTAxOjQ2REVFQkExMDI0NUZDRjk5RDgxODc0NjFEMDFENTUx"
     );
 
     const order_num = random(8);
 
     const raw = JSON.stringify({
-      // mid: "2999199990",
-      mid: "2001107188",
+      mid: "2001107187",
       orderNumb: order_num,
       userName: formData.userName,
-      // userEmail: "",
+      userEmail: "",
       productType: "REAL",
       productName: product.product_name,
       totalAmount: product.product_price,
       taxFreeAmount: "0",
-      // payload: "",
+      payload: "",
       interestType: "PG",
       cardNumb: card_num,
       expiryDate: expire_date,
       installMonth: formData.installMonth,
       currencyType: "KRW",
-      // password: formData.password,
-      // userInfo: formData.userInfo,
     });
+
+    const temp = {
+      mid: "2001107187",
+      orderNumb: "192e515b",
+      userName: "박수정",
+      userEmail: "",
+      productType: "REAL",
+      productName: "홈페이지제작",
+      totalAmount: "5000",
+      taxFreeAmount: "0",
+      payload: "",
+      interestType: "PG",
+      cardNumb: "5188316810511892",
+      expiryDate: "2612",
+      installMonth: "0",
+      currencyType: "KRW",
+    };
+
+    console.log(raw);
 
     const requestOptions = {
       method: "POST",
@@ -102,6 +118,7 @@ function Payment(props) {
       .then((response) => response.text())
       .then(async (result) => {
         const res = JSON.parse(result);
+        console.log(result);
         if (res.code === "A0200") {
           const totalData = {
             ...product,
