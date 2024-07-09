@@ -21,6 +21,8 @@ import { ko } from "date-fns/locale/ko";
 import { useLocation, useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase_conf";
+import axios from "axios";
+import $ from "jquery";
 
 function Payment(props) {
   const navigate = useNavigate();
@@ -63,16 +65,16 @@ function Payment(props) {
       cardNumb.first + cardNumb.second + cardNumb.third + cardNumb.fourth;
     const expire_date = expiryDate.year + expiryDate.month;
 
+    const order_num = random(8);
+
     const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
     myHeaders.append(
       "Authorization",
       "pgapi MjAwMTEwNzE4ODpNQTAxOjc1OTVENzE4NkJBMEVFMTIyMENDNUEyMzkxOEUxMTMw"
     );
+    myHeaders.append("Content-Type", "application/json");
 
-    const order_num = random(8);
-
-    const raw = JSON.stringify({
+    const requestData = {
       mid: "2001107188",
       orderNumb: order_num,
       userName: formData.userName,
@@ -87,75 +89,49 @@ function Payment(props) {
       expiryDate: expire_date,
       installMonth: formData.installMonth,
       currencyType: "KRW",
-    });
-
-    const temp = {
-      mid: "2001107187",
-      orderNumb: "192e515b",
-      userName: "박수정",
-      userEmail: "",
-      productType: "REAL",
-      productName: "홈페이지제작",
-      totalAmount: "5000",
-      taxFreeAmount: "0",
-      payload: "",
-      interestType: "PG",
-      cardNumb: "5188316810511892",
-      expiryDate: "2612",
-      installMonth: "0",
-      currencyType: "KRW",
     };
-
-    console.log(raw);
 
     const requestOptions = {
       method: "POST",
       headers: myHeaders,
-      body: raw,
+      body: JSON.stringify(requestData),
     };
 
-    fetch("/api/v1/card/pay/noncert", requestOptions)
-      .then((response) => response.text())
-      .then(async (result) => {
-        const res = JSON.parse(result);
-        console.log(result);
-        if (res.code === "A0200") {
-          const totalData = {
-            ...product,
-            ...res.data,
-            ...formData,
-            ...{
-              startDate: startDate.toLocaleDateString(),
-              endDate: endDate.toLocaleDateString(),
-            },
-          };
+    try {
+      const response = await fetch(
+        "/.netlify/functions/noncert",
+        requestOptions
+      );
 
-          await setDoc(doc(db, "payment", order_num), totalData);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
 
-          navigate(`/result/${order_num}`, {
-            state: totalData,
-          });
-        } else if (res.code === "A0201") {
-          alert("처리 실패! " + res.data.respMessage);
-          return;
-        } else if (res.code === "A0400") {
-          alert("요청 파라미터 오류");
-          return;
-        } else if (res.code === "A0401") {
-          alert("인증 오류");
-          return;
-        } else if (res.code === "A0403") {
-          alert("프로토콜 오류");
-          return;
-        } else if (res.code === "A500") {
-          alert("서버 오류 (KSNET 기술팀 문의)");
-          return;
-        } else if (res.code === "A0999") {
-          alert("기타 오류");
-          return;
-        }
-      })
-      .catch((error) => console.error(error));
+      const res = await response.json();
+
+      if (res.code === "A0200") {
+        const totalData = {
+          ...product,
+          ...res.data,
+          ...formData,
+          ...{
+            startDate: startDate.toLocaleDateString(),
+            endDate: endDate.toLocaleDateString(),
+          },
+        };
+
+        await setDoc(doc(db, "payment", order_num), totalData);
+
+        navigate(`/result/${order_num}`, {
+          state: totalData,
+        });
+      } else {
+        alert(`처리 실패! ${res.data.respMessage}`);
+      }
+    } catch (error) {
+      console.error("There was an error!", error);
+      alert("요청 중 오류가 발생했습니다.");
+    }
   };
 
   const random = (length = 8) => {

@@ -190,7 +190,7 @@ function Admin(props) {
     };
 
     if (window.confirm("해당 결제를 취소하시겠습니까?")) {
-      fetch("/api/v1/card/cancel", requestOptions)
+      fetch("/.netlify/functions/cancel", requestOptions)
         .then((response) => response.text())
         .then(async (result) => {
           const res = JSON.parse(result);

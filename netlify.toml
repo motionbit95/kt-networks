@@ -1,0 +1,8 @@
+[build]
+  functions = "functions"  # Netlify Functions가 있는 디렉토리를 명시적으로 지정
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
