@@ -627,6 +627,12 @@ function Admin(props) {
                           viewArrow={paymentSearch.order === "approvalNumb"}
                         />
                         <OrderHeader
+                          displayText={"할부개월수"}
+                          parameter={"installMonth"}
+                          onOrder={handleOrder}
+                          viewArrow={paymentSearch.order === "installMonth"}
+                        />
+                        <OrderHeader
                           displayText={"결제금액"}
                           parameter={"product_price"}
                           onOrder={handleOrder}
@@ -656,6 +662,11 @@ function Admin(props) {
                           <Td>{payment.userName}</Td>
                           <Td>{payment?.issuerCardName}</Td>
                           <Td>{payment?.approvalNumb}</Td>
+                          <Td>
+                            {payment?.installMonth !== "0"
+                              ? payment?.installMonth + "개월"
+                              : "일시불"}
+                          </Td>
                           <Td>{formatCurrency(payment.product_price)}</Td>
                           <Td>{payment.sales_manager}</Td>
                           <Td>

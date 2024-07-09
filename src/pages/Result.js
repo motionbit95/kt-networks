@@ -104,8 +104,12 @@ function Result(props) {
                 <Td>{formatCurrency(data?.totalAmount)}</Td>
               </Tr>
               <Tr>
-                <Td>승인번호</Td>
+                <Td>할부개월수</Td>
                 <Td whiteSpace={"pre-wrap"}>{data?.approvalNumb}</Td>
+              </Tr>
+              <Tr>
+                <Td>승인번호</Td>
+                <Td whiteSpace={"pre-wrap"}>{data?.installMonth}개월</Td>
               </Tr>
               <Tr>
                 <Td>승인일시</Td>

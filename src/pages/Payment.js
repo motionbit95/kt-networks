@@ -203,7 +203,7 @@ function Payment(props) {
                           onChange={onChange}
                         />
                       </FormControl>
-                      <FormControl isRequired>
+                      <FormControl>
                         <FormLabel>영업담당자 성함</FormLabel>
                         <Input
                           placeholder="영업담당자 성함"
