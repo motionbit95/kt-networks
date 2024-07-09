@@ -109,7 +109,12 @@ function Result(props) {
               </Tr>
               <Tr>
                 <Td>승인번호</Td>
-                <Td whiteSpace={"pre-wrap"}>{data?.installMonth}개월</Td>
+                <Td whiteSpace={"pre-wrap"}>
+                  {" "}
+                  {data?.installMonth !== "0"
+                    ? data?.installMonth + "개월"
+                    : "일시불"}
+                </Td>
               </Tr>
               <Tr>
                 <Td>승인일시</Td>
