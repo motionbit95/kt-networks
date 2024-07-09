@@ -32,6 +32,9 @@ import {
   Td,
   Checkbox,
   ButtonGroup,
+  InputGroup,
+  InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 import {
   Modal,
@@ -52,8 +55,9 @@ import {
   doc,
   deleteDoc,
   orderBy,
+  getDoc,
 } from "firebase/firestore";
-import { db } from "../firebase_conf";
+import { auth, db } from "../firebase_conf";
 import { FaRegEdit, FaSearch } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
 import {
@@ -66,7 +70,9 @@ import {
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from "date-fns/locale/ko";
+import { useNavigate } from "react-router-dom";
 function Admin(props) {
+  const navigate = useNavigate();
   const [search, setSearch] = useState({});
   const [paymentSearch, setPaymentSearch] = useState({
     category: "business_name",
@@ -79,11 +85,29 @@ function Admin(props) {
   const [productList, setProductList] = useState([]);
   const [paymentList, setPaymentList] = useState([]);
   const { colorMode, toggleColorMode } = useColorMode();
+
   useEffect(() => {
-    registerLocale("ko", ko);
-    getProducts();
-    getPayment();
+    auth.onAuthStateChanged((user) => {
+      if (!user) {
+        window.location.href = "/login";
+      } else {
+        getDoc(doc(db, "users", user.uid)).then((doc) => {
+          if (!doc.data().approved) {
+            window.location.href = "/login";
+          } else {
+            registerLocale("ko", ko);
+            getProducts();
+            getPayment();
+            getUserList();
+          }
+        });
+      }
+    });
   }, []);
+
+  const [userList, setUserList] = useState([]);
+  const [filteredUserList, setFilteredUserList] = useState([]);
+  const [keyword, setKeyword] = useState("");
 
   const getProducts = async () => {
     const q = query(collection(db, "product"));
@@ -240,12 +264,54 @@ function Admin(props) {
     setPaymentList(paymentList);
   };
 
+  const getUserList = () => {
+    const q = query(collection(db, "users"), orderBy("createdAt", "desc"));
+    let users = [];
+    getDocs(q).then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        users.push({ ...doc.data() });
+        setUserList(users);
+        setFilteredUserList(users);
+      });
+    });
+  };
+
+  useEffect(() => {
+    handleSearch();
+  }, [userList]);
+
+  const handleSearch = (e) => {
+    // setKeyword(e.target.value);
+    let filtered = userList.filter((user) => {
+      if (user.email.includes(keyword)) {
+        return user;
+      }
+    });
+
+    setFilteredUserList(filtered);
+  };
+
+  const handleApprove = async (user) => {
+    let message = user.approved
+      ? "승인을 취소하시겠습니까?"
+      : "승인하시겠습니까?";
+    if (window.confirm(message)) {
+      await updateDoc(doc(db, "users", user.uid), {
+        approved: !user.approved,
+      }).then(() => {
+        getUserList();
+      });
+    }
+  };
+
   return (
     <>
       <Box p={4}>
         <Tabs variant="soft-rounded" colorScheme="green">
           <HStack justifyContent={"space-between"}>
             <TabList>
+              <Tab>회원관리</Tab>
               <Tab>상품관리</Tab>
               <Tab>결제관리</Tab>
             </TabList>{" "}
@@ -260,6 +326,55 @@ function Admin(props) {
             )}
           </HStack>
           <TabPanels>
+            <TabPanel px={0}>
+              <Stack>
+                <HStack justifyContent={"flex-end"}>
+                  <InputGroup maxW={"300px"}>
+                    <InputRightElement>
+                      <IconButton
+                        variant={"ghost"}
+                        size={"sm"}
+                        icon={<FaSearch />}
+                        onClick={handleSearch}
+                      ></IconButton>
+                    </InputRightElement>
+                    <Input
+                      placeholder="이메일 검색"
+                      onChange={(e) => setKeyword(e.target.value)}
+                    />
+                  </InputGroup>
+                </HStack>
+                <TableContainer
+                  border="1px solid #d9d9d9"
+                  borderRadius={"lg"}
+                  p={2}
+                >
+                  <Table variant="simple">
+                    <Thead>
+                      <Tr>
+                        <Th>이메일</Th>
+                        <Th>승인여부</Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+                      {filteredUserList.map((user) => (
+                        <Tr>
+                          <Td>{user.email}</Td>
+                          <Td>
+                            <Button
+                              onClick={() => handleApprove(user)}
+                              colorScheme={user.approved ? "green" : "red"}
+                            >
+                              {user.approved ? "승인완료" : "비승인"}
+                            </Button>
+                          </Td>
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
+                </TableContainer>
+              </Stack>
+            </TabPanel>
             <TabPanel px={0}>
               <Stack>
                 <HStack justifyContent={"space-between"}>

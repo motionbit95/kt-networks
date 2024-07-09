@@ -12,6 +12,9 @@ import Admin from "./pages/Admin";
 import Product from "./pages/Product";
 import Payment from "./pages/Payment";
 import Result from "./pages/Result";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Find from "./pages/Find";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
                 <Route path="/product" element={<Product />} />
                 <Route path="/payment/*" element={<Payment />} />
                 <Route path="/result/*" element={<Result />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/find" element={<Find />} />
               </Routes>
             </BrowserRouter>
           </div>
