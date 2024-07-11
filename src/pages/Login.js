@@ -42,7 +42,8 @@ const Login = () => {
           if (doc.exists()) {
             if (doc.data().approved) {
               // 관리자 페이지로 이동
-              navigate("/admin");
+              // navigate("/admin");
+              window.open("/admin", "_self");
             } else {
               toast({
                 title: "관리자의 승인이 필요한 계정입니다.",
