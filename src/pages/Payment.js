@@ -340,9 +340,22 @@ function Payment(props) {
                       <Text fontSize={"lg"} fontWeight={"bold"}>
                         {product.product_name}
                       </Text>
-                      <Text fontSize={"lg"} fontWeight={"bold"}>
-                        {formatCurrency(product.product_price)}
-                      </Text>
+                      {product.pid === "ZQDOmOwArzsDmK35Eb6d" ? (
+                        <Input
+                          type="number"
+                          w={"50%"}
+                          onChange={(e) => {
+                            setProduct({
+                              ...product,
+                              product_price: e.target.value,
+                            });
+                          }}
+                        ></Input>
+                      ) : (
+                        <Text fontSize={"lg"} fontWeight={"bold"}>
+                          {formatCurrency(product.product_price)}
+                        </Text>
+                      )}
                     </HStack>
                   </Card>
                   <HStack
